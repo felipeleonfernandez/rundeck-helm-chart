@@ -37,6 +37,22 @@ env:
     value: org.hibernate.dialect.MySQL8Dialect
   - name: RUNDECK_METRICS_ENABLED   # This enable the /api/<api_version>/metrics endpoint to use by the Prometheus exporter
     value: 'true'
+  - name: RUNDECK_LOGGING_LOGLEVEL_DEFAULT
+    value: debug
+  - name: RUNDECK_LOGGING_LOGLEVEL_ROOT
+    value: debug
+  - name: RUNDECK_LOGGING_LOGLEVEL_HIBERNATE
+    value: debug
+  - name: RUNDECK_LOGGING_LOGLEVEL_SPRING
+    value: debug
+  - name: RUNDECK_LOGGING_LOGLEVEL_SPRINGBEAN
+    value: debug
+  - name: RUNDECK_LOGGING_LOGLEVEL_INTERNALS
+    value: debug
+  - name: RUNDECK_LOGGING_LOGLEVEL_GRAILS
+    value: debug
+  - name: RUNDECK_LOGGING_LOGLEVEL_JETTY
+    value: debug
 
 # This section builds out the service account more information can be found here: https://kubernetes.io/docs/concepts/security/service-accounts/
 serviceAccount:
