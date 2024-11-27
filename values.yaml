@@ -21,7 +21,7 @@ fullnameOverride: ""
 
 env:
   - name: RUNDECK_GRAILS_URL
-    value: http://192.168.49.2:32440  # Node IP and port to make the Rundeck redirections properly
+    value: http://192.168.0.87:32440  # Node IP and port to make the Rundeck redirections properly
   - name: RUNDECK_SERVER_ADDRESS
     value: 0.0.0.0
   - name: RUNDECK_DATABASE_DRIVER 
@@ -35,24 +35,24 @@ env:
     value: 'jdbc:mysql://mysql.db.svc.cluster.local:3306/rundeck_dev?useSSL=false&allowPublicKeyRetrieval=true'
   - name: RUNDECK_DATABASE_DIALECT
     value: org.hibernate.dialect.MySQL8Dialect
-  - name: RUNDECK_METRICS_ENABLED   # This enable the /api/<api_version>/metrics endpoint to use by the Prometheus exporter
-    value: 'true'
-  - name: RUNDECK_LOGGING_LOGLEVEL_DEFAULT
-    value: debug
-  - name: RUNDECK_LOGGING_LOGLEVEL_ROOT
-    value: debug
-  - name: RUNDECK_LOGGING_LOGLEVEL_HIBERNATE
-    value: debug
-  - name: RUNDECK_LOGGING_LOGLEVEL_SPRING
-    value: debug
-  - name: RUNDECK_LOGGING_LOGLEVEL_SPRINGBEAN
-    value: debug
-  - name: RUNDECK_LOGGING_LOGLEVEL_INTERNALS
-    value: debug
-  - name: RUNDECK_LOGGING_LOGLEVEL_GRAILS
-    value: debug
-  - name: RUNDECK_LOGGING_LOGLEVEL_JETTY
-    value: debug
+#  - name: RUNDECK_METRICS_ENABLED   # This enable the /api/<api_version>/metrics endpoint to use by the Prometheus exporter
+#    value: 'true'
+#  - name: RUNDECK_LOGGING_LOGLEVEL_DEFAULT
+#    value: debug
+#  - name: RUNDECK_LOGGING_LOGLEVEL_ROOT
+#    value: debug
+#  - name: RUNDECK_LOGGING_LOGLEVEL_HIBERNATE
+#    value: debug
+#  - name: RUNDECK_LOGGING_LOGLEVEL_SPRING
+#    value: debug
+#  - name: RUNDECK_LOGGING_LOGLEVEL_SPRINGBEAN
+#    value: debug
+#  - name: RUNDECK_LOGGING_LOGLEVEL_INTERNALS
+#    value: debug
+#  - name: RUNDECK_LOGGING_LOGLEVEL_GRAILS
+#    value: debug
+#  - name: RUNDECK_LOGGING_LOGLEVEL_JETTY
+#    value: debug
 
 # This section builds out the service account more information can be found here: https://kubernetes.io/docs/concepts/security/service-accounts/
 serviceAccount:
@@ -129,9 +129,9 @@ readinessProbe:   # This check modifies the status of the pod (READY 0/1 --> REA
 autoscaling:
   enabled: false
   minReplicas: 1
-  maxReplicas: 100
+  maxReplicas: 3
   targetCPUUtilizationPercentage: 80
-  # targetMemoryUtilizationPercentage: 80
+  targetMemoryUtilizationPercentage: 80
 
 # Base name for all PVC that are gonna be created
 persistentVolumeClaim:
