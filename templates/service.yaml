@@ -4,6 +4,9 @@ metadata:
   name: {{ include "rundeck.fullname" . }}
   labels:
     {{- include "rundeck.labels" . | nindent 4 }}
+    {{- with .Values.serviceLabels }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
 spec:
   type: {{ .Values.service.type }}
   ports:

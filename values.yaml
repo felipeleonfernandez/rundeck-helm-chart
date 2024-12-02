@@ -71,7 +71,8 @@ serviceAccount:
 podAnnotations: {}
 # This is for setting Kubernetes Labels to a Pod.
 # For more information checkout: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
-podLabels: {}
+podLabels: 
+  monitoring: enabled
 
 podSecurityContext: {}
   # fsGroup: 2000
@@ -92,6 +93,11 @@ service:
   port: 4440  # Exposes the service within the cluster for other pods or services (the port of the service itself)
   targetPort: 4440  # Defines the port on the pod where the actual application is running
   nodePort: 32440  # Exposes the service outside the cluster to access it through node IP address and this port
+
+# This is for setting Kubernetes Labels to a Service.
+# For more information checkout: https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/
+serviceLabels: 
+  monitoring: enabled
 
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
